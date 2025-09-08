@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cucumber-login-demo</groupId>
+  <artifactId>cucumber-login-demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <cucumber.version>7.14.0</cucumber.version>
+    <selenium.version>4.23.0</selenium.version>
+    <junit.jupiter.version>5.10.2</junit.jupiter.version>
+    <surefire.version>3.2.5</surefire.version>
+  </properties>
+  <dependencies>
+  	<!-- Cucumber core -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit 5 platform engine for Cucumber -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- (Optional) PicoContainer for DI between steps/hooks -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Selenium 4 (Selenium Manager will fetch drivers automatically) -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit Jupiter (assertions and platform) -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-suite</artifactId>
+    <version>1.10.1</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>5.1.1</version>
+    </dependency>
+
+    <!-- Extent Adapter for Cucumber -->
+    <dependency>
+        <groupId>tech.grasshopper</groupId>
+        <artifactId>extentreports-cucumber7-adapter</artifactId>
+        <version>1.14.0</version>
+    </dependency>
+  </dependencies>
+   <build>
+  <plugins>
+    <!-- Surefire Plugin (Runs JUnit 5 + Cucumber) -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>${surefire.version}</version>
+      <configuration>
+        <useModulePath>false</useModulePath>
+        <includes>
+          <include>**/RunCucumberTest.java</include>
+        </includes>
+        <systemPropertyVariables>
+          <!-- Pass headless option -->
+          <headless>${headless}</headless>
+          <!-- Ensure cucumber plugins are passed -->
+          <cucumber.plugin>
+            pretty,
+            html:target/cucumber-report.html,
+            json:target/cucumber.json,
+            junit:target/cucumber.xml
+          </cucumber.plugin>
+        </systemPropertyVariables>
+      </configuration>
+      <executions>
+        <execution>
+          <id>run-cucumber-tests</id>
+          <phase>test</phase>
+          <goals>
+            <goal>test</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+
+</project>

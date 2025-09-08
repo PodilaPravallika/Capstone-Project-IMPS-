@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="32.667" tests="18" skipped="0" failures="0" errors="0">
+<testcase classname="Login Functionality for Insurance App" name="Login attempts - Example #1.1" time="9.911">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters username "admin" and password "admin123"...............passed
+And clicks the login button.................................................passed
+Then the user should be redirected to the homepage "http://localhost:8081/insurance-mysql-crud/dashboard".passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality for Insurance App" name="Login attempts - Example #1.2" time="0.647">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters username "wrong" and password "wrong123"...............passed
+And clicks the login button.................................................passed
+Then an error message "Invalid credentials" should be displayed.............passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Add a new policy - Example #1.1" time="2.079">
+<system-out><![CDATA[
+Given I am on the Insurance Dashboard.......................................passed
+When I click on "Manage Policies"...........................................passed
+And I click on "New Policy".................................................passed
+And I fill the policy form with type "LIFE", holder "ram", age "56", coverage "200000", and start date "09-02-2025".passed
+And I submit the form.......................................................passed
+Then I should see "ram" policy in the list..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Add a new policy - Example #1.2" time="2.021">
+<system-out><![CDATA[
+Given I am on the Insurance Dashboard.......................................passed
+When I click on "Manage Policies"...........................................passed
+And I click on "New Policy".................................................passed
+And I fill the policy form with type "HEALTH", holder "rani", age "45", coverage "150000", and start date "10-10-2025".passed
+And I submit the form.......................................................passed
+Then I should see "rani" policy in the list.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Add a new policy - Example #1.3" time="1.807">
+<system-out><![CDATA[
+Given I am on the Insurance Dashboard.......................................passed
+When I click on "Manage Policies"...........................................passed
+And I click on "New Policy".................................................passed
+And I fill the policy form with type "VEHICLE", holder "john", age "30", coverage "500000", and start date "11-01-2025".passed
+And I submit the form.......................................................passed
+Then I should see "john" policy in the list.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Edit an existing policy - Example #1.1" time="1.987">
+<system-out><![CDATA[
+Given I am on the Manage Policies page......................................passed
+When I click on the Edit button of "ram"....................................passed
+And I update the age to "58" and coverage to "210000".......................passed
+And I submit the form.......................................................passed
+Then I should see "ram" policy updated with age "58" and coverage "210000"..passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Edit an existing policy - Example #1.2" time="1.748">
+<system-out><![CDATA[
+Given I am on the Manage Policies page......................................passed
+When I click on the Edit button of "rani"...................................passed
+And I update the age to "47" and coverage to "160000".......................passed
+And I submit the form.......................................................passed
+Then I should see "rani" policy updated with age "47" and coverage "160000".passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Delete an existing policy - Example #1.1" time="0.882">
+<system-out><![CDATA[
+Given I am on the Manage Policies page......................................passed
+When I click on the Delete button of "ram"..................................passed
+Then the policy for "ram" should be removed from the list...................passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Policies Management" name="Delete an existing policy - Example #1.2" time="1.209">
+<system-out><![CDATA[
+Given I am on the Manage Policies page......................................passed
+When I click on the Delete button of "rani".................................passed
+Then the policy for "rani" should be removed from the list..................passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Claims Management" name="Submit a new claim - Example #1.1" time="1.339">
+<system-out><![CDATA[
+Given I am on the Claims page...............................................passed
+When I select policy "14 - john - VEHICLE"..................................passed
+And I enter description "Sugar".............................................passed
+And I enter claim amount "2000".............................................passed
+And I submit the claim......................................................passed
+Then I should see claim with description "Sugar" in the list................passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Claims Management" name="Submit a new claim - Example #1.2" time="1.149">
+<system-out><![CDATA[
+Given I am on the Claims page...............................................passed
+When I select policy "12 - vasu - LIFE".....................................passed
+And I enter description "Accident"..........................................passed
+And I enter claim amount "3000".............................................passed
+And I submit the claim......................................................passed
+Then I should see claim with description "Accident" in the list.............passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Claims Management" name="Delete an existing claim - Example #1.1" time="0.932">
+<system-out><![CDATA[
+Given I am on the Claims page...............................................passed
+When I click on the Delete button of claim "Sugar"..........................passed
+Then the claim with description "Sugar" should be removed from the list.....passed
+]]></system-out>
+</testcase>
+<testcase classname="Insurance Claims Management" name="Delete an existing claim - Example #1.2" time="0.483">
+<system-out><![CDATA[
+Given I am on the Claims page...............................................passed
+When I click on the Delete button of claim "Accident".......................passed
+Then the claim with description "Accident" should be removed from the list..passed
+]]></system-out>
+</testcase>
+<testcase classname="Premium Calculation" name="Validate premium calculation with different inputs - Example #1.1" time="1.068">
+<system-out><![CDATA[
+Given user is on the Premium Calculation page...............................passed
+When user enters age "25"...................................................passed
+And user enters coverage amount "100000"....................................passed
+And user selects policy type "Life Insurance"...............................passed
+And user submits the premium calculation....................................passed
+Then calculated premium should be displayed.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Premium Calculation" name="Validate premium calculation with different inputs - Example #1.2" time="1.443">
+<system-out><![CDATA[
+Given user is on the Premium Calculation page...............................passed
+When user enters age "35"...................................................passed
+And user enters coverage amount "200000"....................................passed
+And user selects policy type "Health Insurance".............................passed
+And user submits the premium calculation....................................passed
+Then calculated premium should be displayed.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Premium Calculation" name="Validate premium calculation with different inputs - Example #1.3" time="0.954">
+<system-out><![CDATA[
+Given user is on the Premium Calculation page...............................passed
+When user enters age "55"...................................................passed
+And user enters coverage amount "300000"....................................passed
+And user selects policy type "Vehicle Insurance"............................passed
+And user submits the premium calculation....................................passed
+Then calculated premium should be displayed.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Premium Calculation" name="Validate invalid inputs for premium calculation - Example #1.1" time="1.045">
+<system-out><![CDATA[
+Given user is on the Premium Calculation page...............................passed
+When user enters age "-5"...................................................passed
+And user enters coverage amount "100000"....................................passed
+And user selects policy type "Life Insurance"...............................passed
+And user submits the premium calculation....................................passed
+Then error message should be displayed......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Premium Calculation" name="Validate invalid inputs for premium calculation - Example #1.2" time="0.769">
+<system-out><![CDATA[
+Given user is on the Premium Calculation page...............................passed
+When user enters age "40"...................................................passed
+And user enters coverage amount "-20000"....................................passed
+And user selects policy type "Health Insurance".............................passed
+And user submits the premium calculation....................................passed
+Then error message should be displayed......................................passed
+]]></system-out>
+</testcase>
+</testsuite>
