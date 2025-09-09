@@ -72,6 +72,28 @@
         <artifactId>extentreports-cucumber7-adapter</artifactId>
         <version>1.14.0</version>
     </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- TestNG for tests that use TestNG assertions -->
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>7.8.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit 4 for legacy assertions if needed -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
   </dependencies>
    <build>
   <plugins>
@@ -109,5 +131,6 @@
     </plugin>
   </plugins>
 </build>
+
 
 </project>
